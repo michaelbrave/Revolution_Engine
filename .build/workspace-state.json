@@ -1,0 +1,1 @@
+{"object": {"artifacts": [], "dependencies": [{"basedOn": null, "packageRef": {"identity": "swiftsdl2", "kind": "remote", "name": "SDL2", "path": "https://github.com/ctreffs/SwiftSDL2.git"}, "state": {"checkoutState": {"branch": null, "revision": "8f41b0102b5f69f38763635bc8118d469ac7193b", "version": "1.1.0"}, "name": "checkout"}, "subpath": "SwiftSDL2"}]}, "version": 4}

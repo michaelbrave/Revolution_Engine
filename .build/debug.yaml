@@ -1,0 +1,163 @@
+client:
+  name: basic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "Revolution_Engine-debug.exe": ["<Revolution_Engine-debug.exe>"]
+  "Revolution_Engine-debug.module": ["<Revolution_Engine-debug.module>"]
+  "Revolution_EnginePackageTests-debug.module": ["<Revolution_EnginePackageTests-debug.module>"]
+  "Revolution_EnginePackageTests-debug.test": ["<Revolution_EnginePackageTests-debug.test>"]
+  "Revolution_EngineTests-debug.module": ["<Revolution_EngineTests-debug.module>"]
+  "SDL2-debug.module": ["<SDL2-debug.module>"]
+  "main": ["<Revolution_Engine-debug.exe>","<Revolution_Engine-debug.module>"]
+  "test": ["<Revolution_Engine-debug.exe>","<Revolution_Engine-debug.module>","<Revolution_EnginePackageTests-debug.test>","<Revolution_EngineTests-debug.module>"]
+default: "main"
+nodes:
+  "/home/mike/Projects/Revolution_Engine/Sources/Revolution_Engine/":
+    is-directory-structure: true
+  "/home/mike/Projects/Revolution_Engine/Tests/Revolution_EngineTests/":
+    is-directory-structure: true
+commands:
+  "/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine.build/Revolution_Engine.swiftmodule.o":
+    tool: shell
+    inputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine.swiftmodule"]
+    outputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine.build/Revolution_Engine.swiftmodule.o"]
+    description: "Wrapping AST for Revolution_Engine for debugging"
+    args: ["/home/mike/Apps/swift-5.3.3/usr/bin/swiftc","-modulewrap","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine.swiftmodule","-o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine.build/Revolution_Engine.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.build/Revolution_EnginePackageTests.swiftmodule.o":
+    tool: shell
+    inputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.swiftmodule"]
+    outputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.build/Revolution_EnginePackageTests.swiftmodule.o"]
+    description: "Wrapping AST for Revolution_EnginePackageTests for debugging"
+    args: ["/home/mike/Apps/swift-5.3.3/usr/bin/swiftc","-modulewrap","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.swiftmodule","-o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.build/Revolution_EnginePackageTests.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.build/Revolution_EngineTests.swiftmodule.o":
+    tool: shell
+    inputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.swiftmodule"]
+    outputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.build/Revolution_EngineTests.swiftmodule.o"]
+    description: "Wrapping AST for Revolution_EngineTests for debugging"
+    args: ["/home/mike/Apps/swift-5.3.3/usr/bin/swiftc","-modulewrap","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.swiftmodule","-o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.build/Revolution_EngineTests.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.build/SDL2.swiftmodule.o":
+    tool: shell
+    inputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.swiftmodule"]
+    outputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.build/SDL2.swiftmodule.o"]
+    description: "Wrapping AST for SDL2 for debugging"
+    args: ["/home/mike/Apps/swift-5.3.3/usr/bin/swiftc","-modulewrap","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.swiftmodule","-o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.build/SDL2.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "<Revolution_Engine-debug.exe>":
+    tool: phony
+    inputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine"]
+    outputs: ["<Revolution_Engine-debug.exe>"]
+
+  "<Revolution_Engine-debug.module>":
+    tool: phony
+    inputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine.build/main.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine.swiftmodule"]
+    outputs: ["<Revolution_Engine-debug.module>"]
+
+  "<Revolution_EnginePackageTests-debug.module>":
+    tool: phony
+    inputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.build/LinuxMain.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.swiftmodule"]
+    outputs: ["<Revolution_EnginePackageTests-debug.module>"]
+
+  "<Revolution_EnginePackageTests-debug.test>":
+    tool: phony
+    inputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.xctest"]
+    outputs: ["<Revolution_EnginePackageTests-debug.test>"]
+
+  "<Revolution_EngineTests-debug.module>":
+    tool: phony
+    inputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.build/Revolution_EngineTests.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.build/XCTestManifests.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.swiftmodule"]
+    outputs: ["<Revolution_EngineTests-debug.module>"]
+
+  "<SDL2-debug.module>":
+    tool: phony
+    inputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.build/SDL2.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.swiftmodule"]
+    outputs: ["<SDL2-debug.module>"]
+
+  "C.Revolution_Engine-debug.exe":
+    tool: shell
+    inputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine.build/Revolution_Engine.swiftmodule.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine.build/main.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.build/SDL2.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.build/SDL2.swiftmodule.o"]
+    outputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine"]
+    description: "Linking ./.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine"
+    args: ["/home/mike/Apps/swift-5.3.3/usr/bin/swiftc","-L/usr/lib/x86_64-linux-gnu","-lSDL2","-L","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug","-o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine","-module-name","Revolution_Engine","-emit-executable","-Xlinker","-rpath=$ORIGIN","@/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine.product/Objects.LinkFileList","-target","x86_64-unknown-linux-gnu","-L","/home/mike/Apps/swift-5.3.3/usr/lib"]
+
+  "C.Revolution_Engine-debug.module":
+    tool: swift-compiler
+    inputs: ["/home/mike/Projects/Revolution_Engine/Sources/Revolution_Engine/main.swift","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.swiftmodule"]
+    outputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine.build/main.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine.swiftmodule"]
+    executable: "/home/mike/Apps/swift-5.3.3/usr/bin/swiftc"
+    module-name: "Revolution_Engine"
+    module-output-path: "/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine.swiftmodule"
+    import-paths: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug"]
+    temps-path: "/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine.build"
+    objects: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine.build/main.swift.o"]
+    other-args: ["-target","x86_64-unknown-linux-gnu","-swift-version","5","-enable-batch-mode","-index-store-path","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-g","-j4","-DSWIFT_PACKAGE","-DDEBUG","-Xcc","-fmodule-map-file=/home/mike/Projects/Revolution_Engine/.build/checkouts/SwiftSDL2/Sources/CSDL2/module.modulemap","-I/usr/include/SDL2","-module-cache-path","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-color-diagnostics"]
+    sources: ["/home/mike/Projects/Revolution_Engine/Sources/Revolution_Engine/main.swift"]
+    is-library: false
+    enable-whole-module-optimization: false
+    num-threads: 4
+
+  "C.Revolution_EnginePackageTests-debug.module":
+    tool: swift-compiler
+    inputs: ["/home/mike/Projects/Revolution_Engine/Tests/LinuxMain.swift","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.swiftmodule"]
+    outputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.build/LinuxMain.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.swiftmodule"]
+    executable: "/home/mike/Apps/swift-5.3.3/usr/bin/swiftc"
+    module-name: "Revolution_EnginePackageTests"
+    module-output-path: "/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.swiftmodule"
+    import-paths: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug"]
+    temps-path: "/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.build"
+    objects: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.build/LinuxMain.swift.o"]
+    other-args: ["-target","x86_64-unknown-linux-gnu","-swift-version","5","-enable-batch-mode","-index-store-path","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-g","-j4","-DSWIFT_PACKAGE","-DDEBUG","-Xcc","-fmodule-map-file=/home/mike/Projects/Revolution_Engine/.build/checkouts/SwiftSDL2/Sources/CSDL2/module.modulemap","-I/usr/include/SDL2","-module-cache-path","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-color-diagnostics"]
+    sources: ["/home/mike/Projects/Revolution_Engine/Tests/LinuxMain.swift"]
+    is-library: false
+    enable-whole-module-optimization: false
+    num-threads: 4
+
+  "C.Revolution_EnginePackageTests-debug.test":
+    tool: shell
+    inputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.build/LinuxMain.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.build/Revolution_EnginePackageTests.swiftmodule.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.build/Revolution_EngineTests.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.build/Revolution_EngineTests.swiftmodule.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.build/XCTestManifests.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.build/SDL2.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.build/SDL2.swiftmodule.o"]
+    outputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.xctest"]
+    description: "Linking ./.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.xctest"
+    args: ["/home/mike/Apps/swift-5.3.3/usr/bin/swiftc","-L/usr/lib/x86_64-linux-gnu","-lSDL2","-L","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug","-o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.xctest","-module-name","Revolution_EnginePackageTests","-emit-executable","-Xlinker","-rpath=$ORIGIN","@/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EnginePackageTests.product/Objects.LinkFileList","-target","x86_64-unknown-linux-gnu","-L","/home/mike/Apps/swift-5.3.3/usr/lib"]
+
+  "C.Revolution_EngineTests-debug.module":
+    tool: swift-compiler
+    inputs: ["/home/mike/Projects/Revolution_Engine/Tests/Revolution_EngineTests/Revolution_EngineTests.swift","/home/mike/Projects/Revolution_Engine/Tests/Revolution_EngineTests/XCTestManifests.swift","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_Engine","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.swiftmodule"]
+    outputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.build/Revolution_EngineTests.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.build/XCTestManifests.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.swiftmodule"]
+    executable: "/home/mike/Apps/swift-5.3.3/usr/bin/swiftc"
+    module-name: "Revolution_EngineTests"
+    module-output-path: "/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.swiftmodule"
+    import-paths: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug"]
+    temps-path: "/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.build"
+    objects: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.build/Revolution_EngineTests.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/Revolution_EngineTests.build/XCTestManifests.swift.o"]
+    other-args: ["-target","x86_64-unknown-linux-gnu","-swift-version","5","-enable-batch-mode","-index-store-path","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-g","-j4","-DSWIFT_PACKAGE","-DDEBUG","-Xcc","-fmodule-map-file=/home/mike/Projects/Revolution_Engine/.build/checkouts/SwiftSDL2/Sources/CSDL2/module.modulemap","-I/usr/include/SDL2","-module-cache-path","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-color-diagnostics"]
+    sources: ["/home/mike/Projects/Revolution_Engine/Tests/Revolution_EngineTests/Revolution_EngineTests.swift","/home/mike/Projects/Revolution_Engine/Tests/Revolution_EngineTests/XCTestManifests.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: 4
+
+  "C.SDL2-debug.module":
+    tool: swift-compiler
+    inputs: ["/home/mike/Projects/Revolution_Engine/.build/checkouts/SwiftSDL2/Sources/SDL2/SDL2.swift"]
+    outputs: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.build/SDL2.swift.o","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.swiftmodule"]
+    executable: "/home/mike/Apps/swift-5.3.3/usr/bin/swiftc"
+    module-name: "SDL2"
+    module-output-path: "/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.swiftmodule"
+    import-paths: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug"]
+    temps-path: "/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.build"
+    objects: ["/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/SDL2.build/SDL2.swift.o"]
+    other-args: ["-target","x86_64-unknown-linux-gnu","-swift-version","5","-enable-batch-mode","-index-store-path","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-g","-j4","-DSWIFT_PACKAGE","-DDEBUG","-Xcc","-fmodule-map-file=/home/mike/Projects/Revolution_Engine/.build/checkouts/SwiftSDL2/Sources/CSDL2/module.modulemap","-I/usr/include/SDL2","-module-cache-path","/home/mike/Projects/Revolution_Engine/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-color-diagnostics"]
+    sources: ["/home/mike/Projects/Revolution_Engine/.build/checkouts/SwiftSDL2/Sources/SDL2/SDL2.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: 4
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/home/mike/Projects/Revolution_Engine/Sources/Revolution_Engine/","/home/mike/Projects/Revolution_Engine/Tests/Revolution_EngineTests/","/home/mike/Projects/Revolution_Engine/Package.swift","/home/mike/Projects/Revolution_Engine/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

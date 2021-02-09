@@ -6,6 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Revolution_Engine",
     dependencies: [
+        .package(name: "SDL2", url: "https://github.com/ctreffs/SwiftSDL2.git", from: "1.1.0")
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
@@ -14,9 +15,9 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Revolution_Engine",
-            dependencies: []),
+            dependencies: ["SDL2"]),
         .testTarget(
             name: "Revolution_EngineTests",
-            dependencies: ["Revolution_Engine"]),
+            dependencies: ["Revolution_Engine", "SDL2"]),
     ]
 )
